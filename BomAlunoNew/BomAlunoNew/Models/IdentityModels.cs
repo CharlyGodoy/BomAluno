@@ -31,5 +31,11 @@ namespace BomAlunoNew.Models
         }
 
         public System.Data.Entity.DbSet<BaseModel.Login> Logins { get; set; }
+
+        public System.Data.Entity.DbSet<BaseModel.Atividade> Atividades { get; set; }
+
+        public System.Data.Entity.DbSet<BaseModel.Tipo> Tipoes { get; set; }
+
+        public System.Data.Entity.DbSet<BaseModel.Materia> Materias { get; set; }
     }
 }
