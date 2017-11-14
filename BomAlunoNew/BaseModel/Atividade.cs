@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +19,7 @@ namespace BaseModel
 
         public bool Ativo { get; set; }
 
+        [ForeignKey("_Tipo")]
         public int TipoID { get; set; }
 
         public Tipo _Tipo { get; set; }
