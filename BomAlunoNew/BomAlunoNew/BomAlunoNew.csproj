@@ -190,26 +190,15 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\AtividadeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\MateriaController.cs" />
-    <Compile Include="Controllers\TipoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201711142155136_Inicial.cs" />
-    <Compile Include="Migrations\201711142155136_Inicial.Designer.cs">
-      <DependentUpon>201711142155136_Inicial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711142210163_estrutura.cs" />
-    <Compile Include="Migrations\201711142210163_estrutura.Designer.cs">
-      <DependentUpon>201711142210163_estrutura.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711142323407_reestruturalogin.cs" />
-    <Compile Include="Migrations\201711142323407_reestruturalogin.Designer.cs">
-      <DependentUpon>201711142323407_reestruturalogin.cs</DependentUpon>
+    <Compile Include="Migrations\201711142347015_Inicial.cs" />
+    <Compile Include="Migrations\201711142347015_Inicial.Designer.cs">
+      <DependentUpon>201711142347015_Inicial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -273,21 +262,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Atividade\Create.cshtml" />
-    <Content Include="Views\Atividade\Delete.cshtml" />
-    <Content Include="Views\Atividade\Details.cshtml" />
-    <Content Include="Views\Atividade\Edit.cshtml" />
-    <Content Include="Views\Atividade\Index.cshtml" />
-    <Content Include="Views\Tipo\Create.cshtml" />
-    <Content Include="Views\Tipo\Delete.cshtml" />
-    <Content Include="Views\Tipo\Details.cshtml" />
-    <Content Include="Views\Tipo\Edit.cshtml" />
-    <Content Include="Views\Tipo\Index.cshtml" />
-    <Content Include="Views\Materia\Create.cshtml" />
-    <Content Include="Views\Materia\Delete.cshtml" />
-    <Content Include="Views\Materia\Details.cshtml" />
-    <Content Include="Views\Materia\Edit.cshtml" />
-    <Content Include="Views\Materia\Index.cshtml" />
     <Content Include="Views\Login\IndexLogin.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -313,14 +287,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201711142155136_Inicial.resx">
-      <DependentUpon>201711142155136_Inicial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711142210163_estrutura.resx">
-      <DependentUpon>201711142210163_estrutura.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711142323407_reestruturalogin.resx">
-      <DependentUpon>201711142323407_reestruturalogin.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711142347015_Inicial.resx">
+      <DependentUpon>201711142347015_Inicial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

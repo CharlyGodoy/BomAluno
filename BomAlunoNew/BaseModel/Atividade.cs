@@ -19,9 +19,9 @@ namespace BaseModel
 
         public bool Ativo { get; set; }
 
-        [ForeignKey("_Tipo")]
-        public int TipoID { get; set; }
-
         public Tipo _Tipo { get; set; }
+
+  
+
     }
 }

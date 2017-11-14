@@ -19,10 +19,13 @@ namespace BaseModel
 
         public bool Ativo { get; set; }
 
-        [ForeignKey("_Atividade")]
-        public int AtividadeID { get; set; }
-
         public List<Atividade> _Atividade { get; set; }
+
+        [ForeignKey("_LoginID")]
+        public int LoginID { get; set; }
+
+        public Tipo _LoginID { get; set; }
+
 
     }
 }

@@ -8,6 +8,58 @@ namespace BomAlunoNew.Migrations
         public override void Up()
         {
             CreateTable(
+                "dbo.Atividades",
+                c => new
+                    {
+                        AtividadeID = c.Int(nullable: false, identity: true),
+                        Nome = c.String(),
+                        Data = c.DateTime(nullable: false),
+                        Descricao = c.String(),
+                        Ativo = c.Boolean(nullable: false),
+                        _Tipo_TipoID = c.Int(),
+                        Materia_MateriaID = c.Int(),
+                    })
+                .PrimaryKey(t => t.AtividadeID)
+                .ForeignKey("dbo.Tipoes", t => t._Tipo_TipoID)
+                .ForeignKey("dbo.Materias", t => t.Materia_MateriaID)
+                .Index(t => t._Tipo_TipoID)
+                .Index(t => t.Materia_MateriaID);
+            
+            CreateTable(
+                "dbo.Tipoes",
+                c => new
+                    {
+                        TipoID = c.Int(nullable: false, identity: true),
+                        Nome = c.String(),
+                        Ativo = c.Boolean(nullable: false),
+                    })
+                .PrimaryKey(t => t.TipoID);
+            
+            CreateTable(
+                "dbo.Logins",
+                c => new
+                    {
+                        LoginID = c.Int(nullable: false, identity: true),
+                        Usuario = c.String(),
+                        Senha = c.String(),
+                    })
+                .PrimaryKey(t => t.LoginID);
+            
+            CreateTable(
+                "dbo.Materias",
+                c => new
+                    {
+                        MateriaID = c.Int(nullable: false, identity: true),
+                        Nome = c.String(),
+                        Descricao = c.String(),
+                        Ativo = c.Boolean(nullable: false),
+                        LoginID = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.MateriaID)
+                .ForeignKey("dbo.Tipoes", t => t.LoginID, cascadeDelete: true)
+                .Index(t => t.LoginID);
+            
+            CreateTable(
                 "dbo.AspNetRoles",
                 c => new
                     {
@@ -83,17 +135,27 @@ namespace BomAlunoNew.Migrations
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
+            DropForeignKey("dbo.Materias", "LoginID", "dbo.Tipoes");
+            DropForeignKey("dbo.Atividades", "Materia_MateriaID", "dbo.Materias");
+            DropForeignKey("dbo.Atividades", "_Tipo_TipoID", "dbo.Tipoes");
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
+            DropIndex("dbo.Materias", new[] { "LoginID" });
+            DropIndex("dbo.Atividades", new[] { "Materia_MateriaID" });
+            DropIndex("dbo.Atividades", new[] { "_Tipo_TipoID" });
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
+            DropTable("dbo.Materias");
+            DropTable("dbo.Logins");
+            DropTable("dbo.Tipoes");
+            DropTable("dbo.Atividades");
         }
     }
 }
