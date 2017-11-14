@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BaseModel
 {
-    class Login
+    public class Login
     {
         public int LoginID { get; set; }
 

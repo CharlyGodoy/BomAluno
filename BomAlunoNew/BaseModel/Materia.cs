@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BaseModel
 {
-    class Materia
+    public class Materia
     {
         [Key]
         public int MateriaID { get; set; }

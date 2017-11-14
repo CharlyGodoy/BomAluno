@@ -29,5 +29,7 @@ namespace BomAlunoNew.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<BaseModel.Login> Logins { get; set; }
     }
 }
