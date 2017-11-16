@@ -19,9 +19,16 @@ namespace BaseModel
 
         public bool Ativo { get; set; }
 
-        public Tipo _Tipo { get; set; }
+        public int TipoID { get; set; }
 
-  
+        [ForeignKey("TipoID")]
+        public virtual Tipo _Tipo { get; set; }
+
+        public int MateriaID { get; set; }
+
+        [ForeignKey("MateriaID")]
+        public virtual Materia _MateriaID { get; set; }
+
 
     }
 }

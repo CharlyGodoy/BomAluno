@@ -18,13 +18,11 @@ namespace BaseModel
         public string Descricao { get; set; }
 
         public bool Ativo { get; set; }
-
-        public List<Atividade> _Atividade { get; set; }
-
-        [ForeignKey("_LoginID")]
+ 
         public int LoginID { get; set; }
 
-        public Tipo _LoginID { get; set; }
+        [ForeignKey("LoginID")]
+        public virtual Login _LoginID { get; set; }
 
 
     }

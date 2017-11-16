@@ -196,9 +196,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201711142347015_Inicial.cs" />
-    <Compile Include="Migrations\201711142347015_Inicial.Designer.cs">
-      <DependentUpon>201711142347015_Inicial.cs</DependentUpon>
+    <Compile Include="Migrations\201711162134480_Atividade.cs" />
+    <Compile Include="Migrations\201711162134480_Atividade.Designer.cs">
+      <DependentUpon>201711162134480_Atividade.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711162138147_Atividade2.cs" />
+    <Compile Include="Migrations\201711162138147_Atividade2.Designer.cs">
+      <DependentUpon>201711162138147_Atividade2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -287,8 +291,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201711142347015_Inicial.resx">
-      <DependentUpon>201711142347015_Inicial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711162134480_Atividade.resx">
+      <DependentUpon>201711162134480_Atividade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711162138147_Atividade2.resx">
+      <DependentUpon>201711162138147_Atividade2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

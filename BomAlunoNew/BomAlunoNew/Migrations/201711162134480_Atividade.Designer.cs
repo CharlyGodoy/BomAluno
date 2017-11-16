@@ -7,13 +7,13 @@ namespace BomAlunoNew.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class Inicial : IMigrationMetadata
+    public sealed partial class Atividade : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Inicial));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Atividade));
         
         string IMigrationMetadata.Id
         {
-            get { return "201711142347015_Inicial"; }
+            get { return "201711162134480_Atividade"; }
         }
         
         string IMigrationMetadata.Source
