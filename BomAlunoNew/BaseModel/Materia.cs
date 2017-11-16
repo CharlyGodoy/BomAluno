@@ -13,6 +13,7 @@ namespace BaseModel
         [Key]
         public int MateriaID { get; set; }
 
+        [Display(Name = "Materia")]
         public string Nome { get; set; }
 
         public string Descricao { get; set; }

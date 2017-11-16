@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,7 @@ namespace BaseModel
     {
         public int TipoID { get; set; }
 
+        [Display(Name = "Tipo")]
         public string Nome { get; set; }
 
         public Boolean Ativo { get; set; }
