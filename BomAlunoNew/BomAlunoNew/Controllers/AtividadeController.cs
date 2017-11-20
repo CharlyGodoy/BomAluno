@@ -19,6 +19,7 @@ namespace BomAlunoNew.Controllers
         public ActionResult Index(int? id)
         {
             Materia materia = db.Materias.Find(id);
+            Session.Add("MateriaID", id);
 
             if (materia != null)
             {
@@ -47,9 +48,8 @@ namespace BomAlunoNew.Controllers
         }
 
         // GET: Atividade/Create
-        public ActionResult Create()
+        public ActionResult Create(int? id)
         {
-            ViewBag.MateriaID = new SelectList(db.Materias, "MateriaID", "Nome");
             ViewBag.TipoID = new SelectList(db.Tipoes, "TipoID", "Nome");
             return View();
         }
@@ -61,11 +61,12 @@ namespace BomAlunoNew.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "AtividadeID,Nome,Data,Descricao,Ativo,TipoID,MateriaID")] Atividade atividade)
         {
+            atividade.MateriaID = (int)Session["MateriaID"];
             if (ModelState.IsValid)
-            {
+            {       
                 db.Atividades.Add(atividade);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new { id = (int)Session["MateriaID"] });
             }
 
             ViewBag.MateriaID = new SelectList(db.Materias, "MateriaID", "Nome", atividade.MateriaID);

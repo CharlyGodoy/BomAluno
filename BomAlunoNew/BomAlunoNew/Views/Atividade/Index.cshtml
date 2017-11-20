@@ -4,10 +4,10 @@
     ViewBag.Title = "Atividades";
 }
 
-<h2>Index</h2>
+<h2>Atividades</h2>
 
 <p>
-    @Html.ActionLink("Criar nova", "Create")
+    @Html.ActionLink("Criar nova", "Create", new { id = (int)Session["MateriaID"]})
 </p>
 <table class="table">
     <tr>
@@ -47,9 +47,9 @@
             @Html.DisplayFor(modelItem => item.Descricao)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.AtividadeID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.AtividadeID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.AtividadeID })
+            @Html.ActionLink("Editar", "Edit", new { id=item.AtividadeID }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.AtividadeID }) |
+            @Html.ActionLink("Deletar", "Delete", new { id=item.AtividadeID })
         </td>
     </tr>
 }

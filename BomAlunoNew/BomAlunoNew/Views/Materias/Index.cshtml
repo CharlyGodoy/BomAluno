@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<BaseModel.Materia>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Materias";
 }
 
-<h2>Index</h2>
+<h2>Materias</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Criar novo", "Create")
 </p>
 <table class="table">
     <tr>
@@ -36,9 +36,9 @@
         </td>
         <td>
             @Html.ActionLink("Atividades", "../Atividade/Index", new { id = item.MateriaID })|
-            @Html.ActionLink("Edit", "Edit", new { id=item.MateriaID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MateriaID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MateriaID })
+            @Html.ActionLink("Editar", "Edit", new { id=item.MateriaID }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.MateriaID }) |
+            @Html.ActionLink("Deletar", "Delete", new { id=item.MateriaID })
         </td>
     </tr>
 }
