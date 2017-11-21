@@ -18,8 +18,20 @@ namespace BomAlunoNew.Controllers
         // GET: Materias
         public ActionResult Index()
         {
-            var materias = db.Materias.Include(m => m._LoginID);
-            return View(materias.ToList());
+            
+            Session.Add("loginID", 2);
+
+            if (Session["loginID"] == null)
+            {
+                return RedirectToAction("../Login/IndexLogin");
+            }
+            else
+            {
+                int id = (int)Session["loginID"];
+
+                var materias = db.Materias.Where(x => x.LoginID == id).ToList();
+                return View(materias.ToList());
+            }
         }
 
         // GET: Materias/Details/5
@@ -40,7 +52,6 @@ namespace BomAlunoNew.Controllers
         // GET: Materias/Create
         public ActionResult Create()
         {
-            ViewBag.LoginID = new SelectList(db.Logins, "LoginID", "Usuario");
             return View();
         }
 
@@ -51,6 +62,7 @@ namespace BomAlunoNew.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "MateriaID,Nome,Descricao,Ativo,LoginID")] Materia materia)
         {
+            materia.LoginID = (int)Session["loginID"]; 
             if (ModelState.IsValid)
             {
                 db.Materias.Add(materia);
@@ -74,7 +86,6 @@ namespace BomAlunoNew.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.LoginID = new SelectList(db.Logins, "LoginID", "Usuario", materia.LoginID);
             return View(materia);
         }
 
@@ -85,13 +96,13 @@ namespace BomAlunoNew.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "MateriaID,Nome,Descricao,Ativo,LoginID")] Materia materia)
         {
+            materia.LoginID = (int)Session["loginID"];
             if (ModelState.IsValid)
             {
                 db.Entry(materia).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.LoginID = new SelectList(db.Logins, "LoginID", "Usuario", materia.LoginID);
             return View(materia);
         }
 

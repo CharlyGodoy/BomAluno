@@ -58,7 +58,7 @@
 
         <div class="form-actions no-color">
             <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Voltar para a lista", "Index")
+            @Html.ActionLink("Voltar para a lista", "Index", new { id = (int)Session["MateriaID"] })
         </div>
     }
 </div>

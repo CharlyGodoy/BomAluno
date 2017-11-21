@@ -18,17 +18,24 @@ namespace BomAlunoNew.Controllers
         // GET: Atividade
         public ActionResult Index(int? id)
         {
-            Materia materia = db.Materias.Find(id);
-            Session.Add("MateriaID", id);
-
-            if (materia != null)
+            if (Session["loginID"] == null)
             {
-                var todasMaterias = db.Atividades.Where(mat => mat.MateriaID == materia.MateriaID).ToList();
-                return View(todasMaterias);
+                return RedirectToAction("../Login/IndexLogin");
             }
             else
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                Materia materia = db.Materias.Find(id);
+                Session.Add("MateriaID", id);
+
+                if (materia != null)
+                {
+                    var todasMaterias = db.Atividades.Where(mat => mat.MateriaID == materia.MateriaID).ToList();
+                    return View(todasMaterias);
+                }
+                else
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
             }
         }
 
@@ -98,11 +105,12 @@ namespace BomAlunoNew.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "AtividadeID,Nome,Data,Descricao,Ativo,TipoID,MateriaID")] Atividade atividade)
         {
+            atividade.MateriaID = (int)Session["MateriaID"];
             if (ModelState.IsValid)
             {
                 db.Entry(atividade).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new { id = (int)Session["MateriaID"] });
             }
             ViewBag.MateriaID = new SelectList(db.Materias, "MateriaID", "Nome", atividade.MateriaID);
             ViewBag.TipoID = new SelectList(db.Tipoes, "TipoID", "Nome", atividade.TipoID);
@@ -132,7 +140,7 @@ namespace BomAlunoNew.Controllers
             Atividade atividade = db.Atividades.Find(id);
             db.Atividades.Remove(atividade);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", new { id = (int)Session["MateriaID"] });
         }
 
         protected override void Dispose(bool disposing)
