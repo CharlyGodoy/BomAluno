@@ -53,6 +53,7 @@ namespace BomAlunoNew.Controllers
         {
             if (ModelState.IsValid)
             {
+                materia.Ativo = true;
                 db.Materias.Add(materia);
                 db.SaveChanges();
                 return RedirectToAction("Index");
