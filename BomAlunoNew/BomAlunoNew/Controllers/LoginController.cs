@@ -11,6 +11,7 @@ namespace BomAlunoNew.Controllers
         // GET: Login
         public ActionResult IndexLogin()
         {
+            Session.Remove("loginID"); //Não delete essa linha Vitor
             return View();
         }
     }
