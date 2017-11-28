@@ -19,7 +19,7 @@ namespace BomAlunoNew.Controllers
         public ActionResult Index()
         {
             
-            Session.Add("loginID", 2);
+            //Session.Add("loginID", 2);
 
             if (Session["loginID"] == null)
             {
